@@ -1,5 +1,6 @@
 /////////////////DAY 20 CHALLENGE//////////////////////
-//QUESTION 58: 
+//QUESTION 58: Average Score Calculator: Write a simple program that can take lots of scores and find
+// their average.
 //this program calculates the average of all scores given
 function averageScore() {
     var scores = [];
@@ -13,7 +14,8 @@ function averageScore() {
 }
 //Example: finding the average of four scores
 console.log(averageScore(50, 90, 70, 80)); //shows the average score
-//QUESTION 59: 
+//QUESTION 59: Add a Special Number: Make a program that creates custom adders. These adders can add a 
+//specific number to any other number you give them later.
 //this program makes a function that adds a specific number
 function makeAdder(valueToAdd) {
     //this is the magic box. It takes a number and add your special number to it
@@ -25,7 +27,8 @@ function makeAdder(valueToAdd) {
 var addFive = makeAdder(5);
 console.log(addFive(10)); //if we put 10 in the box, it gives us 15 
 //we made a function (magic box) that adds 5 to any number
-//QUESTION 60: 
+//QUESTION 60: Self-Running User Profile: Create a quick, self-setup profile for a user that can tell
+// you the user's name and age.
 //this profile sets itself up and can share info about the user
 var userProfile = (function () {
     //the user's details are kept inside

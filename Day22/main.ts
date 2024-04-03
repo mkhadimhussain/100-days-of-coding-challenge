@@ -39,9 +39,9 @@ function checkBothTrue(val1: boolean, val2: boolean): boolean {
 } 
 
 //trying it with both true's.
-console.log(checkBothTrue(true, true));
+console.log(checkBothTrue(true, true));   // Output true
 
 //trying it with true and false
-console.log(checkBothTrue(true, false));
+console.log(checkBothTrue(true, false));  // Output false
 
 

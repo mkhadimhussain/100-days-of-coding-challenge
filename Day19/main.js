@@ -1,5 +1,6 @@
 /////////////////DAY 19 CHALLENGE//////////////////////
-//QUESTION 55: 
+//QUESTION 55: Double Numbers in an Array: Make a list of numbers. Then, use a trick to make a new list
+// where each number is twice its original value.
 //starts with a list of numbers
 var numbers = [1, 2, 3, 4, 5,];
 //double each number
@@ -7,7 +8,8 @@ var doubleNumbers = numbers.map(function (number) { return number * 2; });
 //this line takes each number, double it, and put it in a new list
 //show the new list of doubled numbers
 console.log(doubleNumbers);
-//QUESTION 56: 
+//QUESTION 56: Keep Only Strings: Given a mix of different types of items, make a new list that has 
+//only the words.
 // a mixed bag of  items
 var mixedArray = [3, "grapes", 2, "pineapple", true, 5, false, "tomato"];
 //picks out only the words
@@ -25,7 +27,7 @@ var booleanArray = mixedArray.filter(function (item) { return typeof item === "b
 //this line checks each item: if it's a boolean,  it goes into the new list
 //shows the list of just boolean
 console.log(booleanArray);
-//QUESTION 57: 
+//QUESTION 57: Find the Average Grade: Given a list of grades, calculate the average grade.
 //a list of grades
 var grades = [77, 92, 88, 53, 99, 63];
 //calculates the average grade 
