@@ -1,6 +1,6 @@
 "use strict";
 /////////////////// DAY 33 CHALLENGE ///////////////////
-//QUESTION 97:
+//QUESTION 97: Write a function that returns the current date in the format "DD-MM-YYYY".
 // This function formats the current date as DD-MM-YYYY function
 function currentDateFormat() {
     const now = new Date();
@@ -11,7 +11,7 @@ function currentDateFormat() {
 }
 console.log(currentDateFormat()); // outputs the current date in DD-MM-YYYY format
 // shows today's date, neatly formated
-//QUESTION 98:
+//QUESTION 98: Create a JavaScript snippet that calculates and logs how many days are left until New Year.
 console.log("\n");
 // Calculates how many days are left until New Year's Day
 function dayUntilNewYear() {
@@ -23,7 +23,7 @@ function dayUntilNewYear() {
 }
 console.log(dayUntilNewYear() + " days until New Year.");
 // Tells us how many days there are until the next New Year's day.
-//QUESTION 99:
+//QUESTION 99: Generate a date object representing your next birthday and log it to the console.
 console.log("\n");
 // Generates a Date object for the next occurrence of a specific birthday 
 function getNextBirthday(month, day) {

@@ -1,5 +1,6 @@
 /////////////////// DAY 24 CHALLENGE ///////////////////
-//QUESTION 70:
+//QUESTION 70: Understanding let in Loops: Write a function that uses a loop with the let keyword to 
+//print numbers from 1 to 5. Explain how the let keyword affects the visibility of the loop variable.
 //this function prints numbers from 1 to 5 using a loop
 function printNumbersWithLet() {
     for (var i = 0; i <= 5; i++) {
@@ -10,7 +11,8 @@ function printNumbersWithLet() {
 }
 printNumbersWithLet();
 //this shows that 'let' limits 'i' to the loop, preventing errors from using 'i' where it's not intended.
-//QUESTION 71:
+//QUESTION 71: Compare let and const: Create two examples where let allows reassignment but const does 
+//not. Try to reassign a const-declared variable and catch the error.
 console.log("\n");
 //using 'let' for a variable that can be reassigned
 var age = 23;
@@ -34,7 +36,9 @@ catch (error) {
 //Compilation errors are detected and reported during the compilation phase, before the JavaScript code 
 //is executed.
 //this example illustrates that 'const' prevents changing the variable once it's set.
-//QUESTION 72:
+//QUESTION 72: Block Scope with let and const: Demonstrate block scope by creating a code block with {} 
+//that uses both let and const. Show how variables declared inside the block are not accessible outside 
+//of it.
 console.log("\n");
 //demonstraating block scope 
 {
