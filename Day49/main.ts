@@ -1,4 +1,26 @@
 /////////////////// DAY 49 CHALLENGE ///////////////////
 
-//QUESTION :
+//QUESTION 145:
+
+
+
+
+
+
+
+//QUESTION 146:
+
+
+
+
+
+
+
+
+//QUESTION 147:
+
+
+
+
+
 

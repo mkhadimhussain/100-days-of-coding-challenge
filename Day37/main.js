@@ -1,12 +1,12 @@
 /////////////////// DAY 37 CHALLENGE ///////////////////
-//QUESTION 109:
+//QUESTION 109: Write an if statement that logs "Good Morning" if the current time is before 12 PM.
 var currentTime = new Date();
 if (currentTime.getHours() < 12) {
     console.log("Good Morning"); // it's morning if before 12 pm
 }
 // Real time output it will show Good Morning when the time is < 12.
 // This simple check helps us greet users appropriately based on the time of day.
-//QUESTION 110:
+//QUESTION 110: Create a function that assigns a grade (A, B, C, D, F) based on a student's score.
 console.log("\n");
 function assignGrades(score) {
     if (score >= 90) {
@@ -29,7 +29,7 @@ console.log(assignGrades(85)); // outputs: B
 console.log(assignGrades(55)); // outputs: F
 console.log(assignGrades(70)); // outputs: C
 // Based on the score provided, we log the corresponding score grade.
-//QUESTION 111:
+//QUESTION 111: Use an if-else-if chain to categorize a person's age group (child, teenager, adult).
 console.log("\n");
 function personAgeGroup(age) {
     if (age <= 13) {

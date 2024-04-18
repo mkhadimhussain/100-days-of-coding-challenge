@@ -1,4 +1,28 @@
 /////////////////// DAY 48 CHALLENGE ///////////////////
 
-//QUESTION :
+//QUESTION 142:
+
+
+
+
+
+
+
+
+
+
+//QUESTION 143:
+
+
+
+
+
+
+
+//QUESTION 144:
+
+
+
+
+
 

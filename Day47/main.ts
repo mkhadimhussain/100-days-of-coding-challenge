@@ -1,4 +1,25 @@
 /////////////////// DAY 47 CHALLENGE ///////////////////
 
-//QUESTION :
+//QUESTION 139:
+
+
+
+
+
+
+
+//QUESTION 140:
+
+
+
+
+
+
+//QUESTION 141:
+
+
+
+
+
+
 

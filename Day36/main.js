@@ -1,5 +1,5 @@
 /////////////////// DAY 36 CHALLENGE ///////////////////
-//QUESTION 106:
+//QUESTION 106: Determine if a given year is a leap year using comparison operators.
 function isLeapYear(year) {
     // checks the conditions for a leap year
     return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
@@ -7,7 +7,8 @@ function isLeapYear(year) {
 console.log(isLeapYear(2020)); // outputs: true
 console.log(isLeapYear(1900)); // outputs: false
 // By using comparison operators, we can easily determine if a year is a leap year or not.
-//QUESTION 107:
+//QUESTION 107: Write a condition using logical operators that checks if a number is divisible 
+//by both 2 and 3.
 console.log("\n");
 function isDivisibleby2And3(number) {
     // uses the modulo operator to check for no reminder
@@ -16,7 +17,7 @@ function isDivisibleby2And3(number) {
 console.log(isDivisibleby2And3(12)); // outputs: true
 console.log(isDivisibleby2And3(14)); // outputs: false
 // Logical operators help us verify the number's divisibility by both 2 and 3.
-//QUESTION 108:
+//QUESTION 108: Compare two strings to check if they are identical, ignoring case sensitivity.
 console.log("\n");
 // This function compares two strings, ignoring case sensitivity
 function comparingStrings(str1, str2) {

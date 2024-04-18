@@ -1,6 +1,6 @@
 /////////////////// DAY 35 CHALLENGE ///////////////////
 
-//QUESTION 103:
+//QUESTION 103: Write a function that returns a random boolean value, true or false.
 
 function getRandomBoolean(): boolean {
     return Math.random() > 0.5; // returns true if the random number is greater than 0.5
@@ -9,7 +9,7 @@ console.log(getRandomBoolean()); // outputs either true or false randomly
 // By comparing a random number to 0.5, we affectively get a true or false value randomly.
 
 
-//QUESTION 104:
+//QUESTION 104: Create a function that generates a random hexadecimal color code.
 
 console.log("\n");
 function getRandomColor(): string {
@@ -20,7 +20,7 @@ console.log(getRandomColor());  // outputs a random hex color code like #ff3e12
 // We generate a random number, convert it to hexadecimal, and ensure it's 6 characters long.
 
 
-//QUESTION 105:
+//QUESTION 105: Simulate a dice roll using JavaScript and return a random integer between 1 and 6.
 
 console.log("\n");
 function rollDice(): number {

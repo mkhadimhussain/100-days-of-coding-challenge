@@ -1,9 +1,7 @@
 /////////////////// DAY 39 CHALLENGE ///////////////////
-
 //QUESTION 115: Use a switch statement to log the days of the week based on a number (1-7).
-
-function logDaysOfWeek(dayNumber: number): void {
-    switch(dayNumber) {
+function logDaysOfWeek(dayNumber) {
+    switch (dayNumber) {
         case 1:
             console.log("Sunday");
             break;
@@ -30,18 +28,13 @@ function logDaysOfWeek(dayNumber: number): void {
             break;
     }
 }
-
-logDaysOfWeek(4);  // outputs: Wednesday
+logDaysOfWeek(4); // outputs: Wednesday
 // Uses a Switch statement to select the appropriate day based on the provided number.
-
-
 //QUESTION 116: Create a switch case that matches several cases to the same code block, representing 
 //seasons.
-
 console.log("\n");
-
-function logSeason(month: number): void {
-    switch(month) {
+function logSeason(month) {
+    switch (month) {
         case 12:
         case 1:
         case 2:
@@ -67,17 +60,12 @@ function logSeason(month: number): void {
             break;
     }
 }
-
-logSeason(7);  // outputs: Summer
+logSeason(7); // outputs: Summer
 // Multiple cases share the same code block to represent each season.
-
-
 //QUESTION 117: Implement a switch statement that evaluates an expression and uses the default case if 
 //none of the cases match.
-
 console.log("\n");
-
-function evaluateGrade(grade: string): void {
+function evaluateGrade(grade) {
     switch (grade) {
         case "A":
             console.log("Excellent");
@@ -99,7 +87,6 @@ function evaluateGrade(grade: string): void {
             break;
     }
 }
-
-evaluateGrade("B");  // outputs: Good
-evaluateGrade("M");  // outputs: Invalid Grade
+evaluateGrade("B"); // outputs: Good
+evaluateGrade("M");
 // Uses a Switch statement to evaluate the grade and defaults to "Invalid Grade" if no match is found.
