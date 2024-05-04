@@ -12,7 +12,6 @@ for (let i = 1; i <= 10; i++) {
 // It demonstrates how to use 'continue' to skip a specific iteration.
 
 
-
 //QUESTION 122: Use a while loop to count down from 10 to 1 and breaks the loop when it reaches 5.
 
 console.log("\n");

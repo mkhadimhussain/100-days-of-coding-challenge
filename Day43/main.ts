@@ -40,7 +40,7 @@ console.log("\n");
 const traditionalVsArrow = {
     value: "traditionalVsArrow Value",
     traditionalFunction: function () {
-        console.log("Traditional function:", this.value); // 'this' refers to traditional VsArrow object
+        console.log("Traditional function:", this.value); // 'this' refers to traditional Vs Arrow object
     },
     arrowFunction: () => {
         console.log("Arrow functuon:", this.value); // 'this' is not bound to traditionalVsArrow object but

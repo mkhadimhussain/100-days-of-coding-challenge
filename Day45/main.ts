@@ -23,15 +23,34 @@ console.log("\n");
 // Defines a JSON string 
 const jsonString1 = '{"name":"Atif","age":24,"city":"Lahore"}';
 
+// Parse the JSON string back into a JavaScript object
+const person1 = JSON.stringify(jsonString1);
 
-
-
-
-
-
+console.log(person1);  // Outputs the original object
+// This snipprt shows how to take a JSON string and convert it back into JavaScript oject.
 
 
 //QUESTION 135: Explain how you can format a JSON string with proper indentation for readability.
 
+console.log("\n");
 
+const person2 = {
+    name: "Kamil",
+    age: 25,
+    city: "Islamabad",
+};
+
+// Converts the object into a JSON string with identation
+const jsonString2 = JSON.stringify(person2, null, 2);  // The '2' specifies the number of spaces to use as
+// white space
+
+console.log(jsonString2);
+/* Output:
+{
+  "name": "Kamil",
+  "age": 25,
+  "city": "Islamabad"
+}
+*/
+// Shows how adding indentation to the JSON string makes it easier to read.
 
