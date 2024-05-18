@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>My HTML Page</title>
+    </head>
+
+    <body>
+        <script>
+            // String Conversion
+            let value = true;
+            alert(typeof value);   // boolean
+
+            value = String(value); // becomes string
+            alert(typeof value);   // string
+
+            // Number Conversion
+            // Numeric conversion in mathematical functions and expressions happens automatically.
+            alert("6" / "2");   // 3, string converted to numbers automatically
+
+            let str = "123";
+            alert(typeof str);  // string
+
+            str = Number(str);  // becomes number
+            alert(typeof str);  // number
+
+            // If the string is not a valid number, the result of such a conversion is NaN.
+            let age = Number("Twenty two");
+            alert(age);  // NaN    (conversion failed)
+
+            // Numeric Conversion Rules
+            alert( Number("   123   ") ); // 123
+            alert( Number("123z") );      // NaN (error reading a number at "z")
+            alert(Number(''));            // 0
+            alert( Number(true) );        // 1
+            alert( Number(false) );       // 0
+            // Please note that null and undefined behave differently here: null becomes zero 
+            // while undefined becomes NaN.
+
+            // Boolean Conversion
+            // The conversion rule:
+            // 1) Values that are intuitively “empty”, like 0, an empty string, null, undefined, 
+            // and NaN, become false.
+            // 2) Other values become true.
+            alert(Boolean(1));        // true
+            alert(Boolean(0));        // false
+
+            alert(Boolean("Hello"));  // true
+            alert(Boolean(''));       // false
+
+            // The string with zero "0" is true, because in JavaScript, a non-empty string is always true.
+            alert(Boolean("0"));      // true
+            alert(Boolean(" "));      // spaces, also true (any non-empty string is true)
+
+        </script>
+    </body>
+</html>
+
+

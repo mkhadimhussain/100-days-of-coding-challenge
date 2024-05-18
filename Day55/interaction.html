@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>My HTML Page</title>
+    </head>
+    
+    <body>
+        <script>
+            // alert
+            alert("Hello");
+
+            // prompt
+            let name = prompt('Enter your name', '');
+            let age = prompt('How old are you?', 100);
+            alert(`Your name is ${name}`);
+            alert(`you are ${age} years old`);
+
+            // confirm
+            let isBoss = confirm('Are you the boss?');
+            alert(isBoss);  // true if OK is pressed
+
+        </script>
+    </body>
+</html>
+
+<!-- 
+alert:
+shows a message.
+
+prompt:
+shows a message asking the user to input text. It returns the text or, if Cancel button or 
+Esc is clicked, null.
+
+confirm:
+shows a message and waits for the user to press “OK” or “Cancel”. It returns true for OK and 
+false for Cancel/Esc. -->
