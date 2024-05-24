@@ -1,0 +1,122 @@
+<html>
+    <body>
+        <head>
+            <title>My HTML Page</title>
+        </head>
+        <script>
+            // Comparison (>, <, >=, <=, ==, !=)
+            // Boolean is the result
+            // All comparison operators return a boolean value:
+            // true – means “yes”, “correct” or “the truth”.
+            // false – means “no”, “wrong” or “not the truth”.
+            alert(2 > 1);   // true (correct)
+            alert(2 == 1);  // false (wrong)
+            alert(2 != 1);  // true (correct)
+
+            // A comparison result can be assigned to a variable, just like any value:
+            let result = 5 > 4;
+            alert(result);  // true
+
+            // String comparison
+
+            // string comparisons are based on the Unicode values of the characters in 
+            // the strings. When comparing strings, JavaScript performs a lexicographical 
+            // (dictionary-style) comparison. 
+            // In other words, strings are compared letter-by-letter.
+            alert('Z' > 'A');        // true
+            // unicode of Z = 90 and A = 65
+            alert('Glow' > 'Glee');  // true
+            // The comparison is done character by character from left to right.
+            // first 2 charactors are same so both are equal now checking the thied character.
+            // The Unicode value of 'o' (111) is greater than the Unicode value of 'e' (101).
+            alert('Bee' > 'Be');     // true
+            // The comparison is done character by character from left to right.
+            // The string 'Bee' has an additional character 'e' after the common prefix 'Be'.
+            alert('2' > '12'); // true 
+            // Unicode of 2 is 50 and 1 is 49 that's why true
+
+            // Comparison of different types
+
+            // When comparing values of different types, JavaScript converts the values to numbers.
+            alert('2' > 1);   // true, string '2' becomes a number 2
+            alert('01' == 1); // true, string '01' becomes a number 1
+
+            // For boolean values, true becomes 1 and false becomes 0.
+            alert(true == 1);  // true
+            alert(false == 0); // true 
+
+            // A funny consequence
+            // It is possible that at the same time:
+            // Two values are equal.
+            // One of them is true as a boolean and the other one is false as a boolean.
+            let a = 0;
+            alert(Boolean(a));  // false 
+
+            let b = "0";
+            alert(Boolean(b));  // true (b is non empty string)
+            // Empty strings ("") are considered false.
+            // Non-empty strings (any string with one or more characters) are considered true.
+
+            alert( a == b); // true
+
+            // Strict Equality
+
+            // A regular equality check == has a problem. It cannot differentiate 0 from false:
+            alert(0 == false);  // true
+            // // Convert false to a number: false becomes 0.
+            // Compare the numbers: Now the comparison is 0 == 0, which is true.
+
+            // The same thing happens with an empty string:
+            alert('' == false);  // true
+            // Convert false to a number: false becomes 0.
+            // Convert the empty string to a number: An empty string '' becomes 0.
+            // Compare the numbers: Now the comparison is 0 == 0, which is true.
+
+            // What to do if we’d like to differentiate 0 from false?
+            // A strict equality operator === checks the equality without type conversion.
+            // In other words, if a and b are of different types, then a === b immediately 
+            // returns false without an attempt to convert them.
+            alert(0 === false);  // false, because the type are different
+            // There is also a “strict non-equality” operator !== analogous to !=.
+            // The strict equality operator is a bit longer to write, but makes it obvious
+            // what’s going on and leaves less room for errors.
+
+            // Comparison with null and undefined
+
+            // For a strict equality check ===
+            // These values are different, because each of them is a different type.
+            alert(null === undefined);  // false
+
+            // For a non-strict check ==
+            // There’s a special rule. These two are a “sweet couple”: they equal each
+            // other (in the sense of ==), but not any other value.
+            alert(null == undefined);  // true
+            // In this special case, no further type conversion is performed because
+            // the equality is directly specified by the language.
+
+            // For Maths and other comparisons < > <= >=
+            // null/undefined are converted to numbers: null becomes 0, while undefined becomes NaN.
+            // Strange result: null vs 0
+            // Let’s compare null with a zero:
+            alert(null > 0);  // (1) false  (comparison convert null into 0)
+            alert(null == 0); // (2) false  (null and undefined don’t equal anything else)
+            alert(null >= 0); // (3) true   (comparison convert null into 0)
+            // Comparisons convert null to a number, treating it as 0. That’s why (3) null >= 0 is 
+            // true and (1) null > 0 is false.
+
+            // On the other hand, the equality check == for undefined and null is defined such that,
+            // without any conversions, they equal each other and don’t equal anything else. That’s
+            // why (2) null == 0 is false.
+
+            // An incomparable undefined
+            // The value undefined shouldn’t be compared to other values:
+            alert(undefined > 0);  // false (1)
+            alert(undefined < 0);  // false (2)
+            alert(undefined == 0); // false (3)
+            // Comparisons (1) and (2) return false because undefined gets converted to NaN and
+            // NaN is a special numeric value which returns false for all comparisons.
+            // The equality check (3) returns false because undefined only equals null, undefined,
+            // and no other value.
+        </script>
+    </body>
+</html>

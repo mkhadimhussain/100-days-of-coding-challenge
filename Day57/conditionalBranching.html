@@ -1,0 +1,170 @@
+<html>
+    <body>
+        <head>
+            <title>My HTML Page</title>
+        </head>
+        <script>
+            // Conditional branching: if, '?' (conditional operator)
+
+            // The 'if' statement
+            // The if(...) statement evaluates a condition in parentheses and, if the result
+            // is true, executes a block of code.
+            let year = prompt("In which year ECMAScript-2015 specification published?",'');
+            if (year == 2015) alert ('You are right!');
+            // If we want to execute more than one statement, we have to wrap our code block
+            // inside curly braces:
+            if (year == 2015) {
+                alert("That's Correct!");
+                alert("You'er so smart");
+            }
+            // We recommend wrapping your code block with curly braces {} every time
+
+            // Boolean conversion
+            // The if (…) statement evaluates the expression in its parentheses and converts
+            // the result to a boolean.
+            // A number 0, an empty string "", null, undefined, and NaN all become false. Because
+            // of that they are called “falsy” values.
+            // Other values become true, so they are called “truthy”.
+
+            // So, the code under this condition would never execute:
+            if (0) {  // 0 is falsy
+                alert("False");  // shows nothing because this code never executed
+            }        // "0" will execute because its a string not a null
+
+            // and inside this condition – it always will:
+            if (1) {  // 1 is truthy
+                alert("1 is truthy");  // shows 1 is truthy
+            }
+            // We can also pass a pre-evaluated boolean value to if, like this:
+            let cond = (year == 2015);
+            if (cond) {
+                alert("Good you are Correct");  // shows Good you are Correct
+            }
+
+            // The “else” clause
+            // The if statement may contain an optional else block. It executes when
+            // the condition is falsy.
+            let yearr = prompt('In which year was the ECMAScript-2015 specification published', '');
+            if (yearr == 2015) {
+                alert('You guessed it right!');
+            } else {
+                alert('How can you be so wrong?')  // any value except 2015
+            }
+
+            // Several conditions: “else if”
+            // Sometimes, we’d like to test several variants of a condition. The else
+            // if clause lets us do that.
+            let year1 = prompt('In which year was the ECMAScript-2015 specification published', '');
+            if (year1 < 2015) {
+                alert('Too early');
+            } else if (year1 > 2015) {
+                alert('Too late');
+            } else {
+                alert('Exactly');
+            }
+
+            // Conditional operator ‘?’
+            // Sometimes, we need to assign a variable depending on a condition.
+            let accessAllowed;
+            let age = prompt('How old are you?','');
+            if (age > 18) {
+                accessAllowed = true;
+            } else {
+                accessAllowed = false;
+            }
+            alert(accessAllowed);
+
+            // The so-called “conditional” or “question mark” operator lets us do that in a 
+            // shorter and simpler way.
+            // The operator is represented by a question mark ?. Sometimes it’s called “ternary”,
+            // because the operator has three operands. It is actually the one and only operator
+            // in JavaScript which has that many.
+            // The syntax is:
+            // let result = condition ? value1 : value2;
+            // The condition is evaluated: if it’s truthy then value1 is returned, otherwise – value2.
+            let accessAllowed1 = (age > 18) ? true : false;
+            alert(accessAllowed1);  
+
+            // Technically, we can omit the parentheses around age > 18. The question mark operator
+            // has a low precedence, so it executes after the comparison >.
+            // This example will do the same thing as the previous one:
+            let accessAllowed2 = age > 18 ? true : false;
+            alert(accessAllowed2);
+            // But parentheses make the code more readable, so we recommend using them.
+
+            // In the example above, you can avoid using the question mark operator because the
+            // comparison itself returns true/false:
+            // the same
+            let accessAllowed3 = age > 18;
+            alert(accessAllowed3);
+
+            // Multiple ‘?’
+            // A sequence of question mark operators ? can return a value that depends on more than
+            // one condition.
+            let age1 = prompt('Age?', 18);
+            let message = (age1 < 3) ? 'Hi, baby' : 
+            (age1 < 18) ? 'Hello!' : 
+            (age1 < 100) ? 'Greetings' : 
+            'What an unusual age!';
+            alert(message);
+
+            // Here’s how this looks using if..else:
+            if (age1 < 3) {
+                alert('Hi, baby');
+            } else if (age1 < 18) {
+                alert('Hello!');
+            } else if (age1 < 100) {
+                alert('Greetings');
+            } else {
+                alert('What an unusual age!');
+            }
+
+            // Non-traditional use of ‘?’
+            // Sometimes the question mark ? is used as a replacement for if:
+            let company = prompt('Which company created JavaScript?', '');
+            (company == 'Netscape') ? 
+            alert('Right!') : alert('Worng');
+            // Depending on the condition company == 'Netscape', either the first or the second
+            // expression after the ? gets executed and shows an alert.
+
+            // Here is the same code using if for comparison:
+            if (company == 'Netscape') {
+                alert('Right!');
+            } else {
+                alert('Wrong');
+            }
+
+            // Task2:  The name of JavaScript
+            let name = prompt('What is the “official” name of JavaScript?', '');
+            if (name == 'ECMAScript') {
+                alert('Right!');
+            } else {
+                alert("You don’t know? ECMAScript!");
+            }
+
+            // Task3:  Show the sign
+            let num = prompt('Enter a number','');
+            if (num > 0) {
+                alert(1);
+            } else if (num < 0) {
+                alert(-1);
+            } else {
+                alert(0);
+            }
+
+            // Task4:  Rewrite 'if' into '?'
+            let a = 2;
+            let b = 1;
+            let result = (a + b < 4) ? 'Below' : 'Over';
+            alert(result);
+
+            // Task5:  Rewrite 'if..else' into '?'
+            let login = prompt('Job Position','');
+            let message1 = (login == 'Employee') ? 'Hello' :
+            (login == 'Director') ? 'Greetings' : 
+            (login == '') ? 'No login' : 
+            '';
+            alert(message1);
+        </script>
+    </body>
+</html>

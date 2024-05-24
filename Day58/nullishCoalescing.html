@@ -1,0 +1,122 @@
+<html>
+    <body>
+        <head>
+            <title>My HTML Page</title>
+        </head>
+        <script>
+            // Nullish Coalescing '??' 
+            // The nullish coalescing operator is written as two question marks ??.
+            // As it treats null and undefined similarly, we’ll use a special term here,
+            // For brevity, we’ll say that a value is “defined” when it’s neither null nor undefined.
+
+            // The result of a ?? b is:
+            // if a is defined, then a,
+            // if a isn’t defined, then b.
+            // In other words, ?? returns the first argument if it’s not null/undefined. Otherwise,
+            // the second one.
+
+            // We can rewrite result = a ?? b using the operators that we already know, like this:
+            result = (a !== null && a !== undefined) ? a : b;
+            
+            // The common use case for ?? is to provide a default value.
+            // Here we show user if its value isn’t null/undefined, otherwise Anonymous:
+            let user;
+            alert(user ?? 'Anonymous');  // Anonymous (user is undefined)
+
+            // Here’s the example with user assigned to a name:
+            let  user1 = "John";
+            alert(user1 ?? "Anonymous"); // John (user1 is not null/undefined)
+
+            // We can also use a sequence of ?? to select the first value from a list that
+            // isn’t null/undefined.
+
+            // We’d like to display the user name using one of these variables, or show
+            // “Anonymous” if all of them are null/undefined.
+            let firstName = null;
+            let lastName = null;
+            let nickName = 'Supercoder';
+            // Shows the first defined value
+            alert(firstName ?? lastName ?? nickName ?? "Anonymous");  // Supercoder
+
+            // ?? Comparison with ||
+
+            // The OR || operator can be used in the same way as ??.
+            // For example, in the code above we could replace ?? with || and still get the same result.
+            let firstName1 = null;
+            let lastName1 = null;
+            let nickName1 = 'Supercoder';
+            // Shows the first truthy value
+            alert(firstName1 || lastName1 || nickName1 || "Anonymous"); // Supercoder
+
+            // The important difference between || and ?? is:
+            // || returns the first truhty value.
+            // ?? returns the first defined value.
+
+            // In other words, || doesn’t distinguish between false, 0, an empty string "" and
+            // null/undefined. They are all the same – falsy values. If any of these is the first
+            // argument of ||, then we’ll get the second argument as the result.
+
+            // For Example, consider this:
+            let height = 0;
+            alert(height || 100);  // 100  (0 is falsy)
+            alert(height ?? 0);  // 0 (checks height for being null/undefined)
+
+            // Precedence
+            // The precedence of the ?? operator is the same as ||. They both equal 3 in the MDN table.
+            //That means that, just like ||, the nullish coalescing operator ?? is evaluated before
+            // = and ?, but after most other operations, such as +, *.
+
+            // So we may need to add parentheses in expressions like this:
+            let height1 = null;
+            let width1 = null;
+            // Important: use paranthesis
+            let area = (height1 ?? 100) * (width1 ?? 50);
+            alert(area);  // 5000
+
+            // Otherwise, if we omit parentheses, then as * has the higher precedence than ??, it would
+            // execute first, leading to incorrect results.
+
+            // Without Parantheses
+            let area1 = height1 ?? 100 * width1 ?? 50;
+            // ...works this way (not what we want):
+            let area11 = height1 ?? (100 * width1) ?? 50;
+
+            // Using ?? with && or ||
+            // Due to safety reasons, JavaScript forbids using ?? together with && and || operators,
+            // unless the precedence is explicitly specified with parentheses.
+
+            // The code below triggers a syntax error:
+            // let x = 1 && 2 ?? 3;  // Sytax error
+            // ERROR: '&&' and '??' operations cannot be mixed without parentheses.
+
+            let a = (1 && 2) ?? 3;
+            // 1 is truthy, so the && operator returns the value of the right-hand side, which is 2.
+            // The left-hand side of the ?? operator is 2, which is neither null nor undefined, so the
+            // ?? operator returns 2.
+            alert(a); // 2 (The expression 2 ?? 3 evaluates to 2 because 2 is not null or undefined.)
+
+            // My Practices
+            let c = null;
+            let d = null;
+            alert(c ?? d);  // null
+            // Since both x and y are null, the ?? operator will return y. Therefore, the output of
+            // alert(x ?? y); will be null.
+
+            // Another example
+            let x = null;
+            let y = undefined;
+            alert(x ?? y);  // undefined
+            // The ?? (nullish coalescing) operator returns the right-hand side operand when the
+            // left-hand side operand is null or undefined. In this case, x is null, so the
+            // ?? operator will return y because y is undefined.
+
+            // ?? used to assign default values to variables:
+
+            // set height=100, if height is null or undefined
+            height = height ?? 100;
+            // if height was previously set to null or undefined, running height = height ?? 100;
+            // would set height to 100. Otherwise, if height already had a value (other than null
+            // or undefined), it would keep that value.
+        </script>
+    </body>
+</html>

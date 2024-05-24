@@ -1,0 +1,221 @@
+<html>
+    <body>
+        <head>
+            <title>My HTML Page</title>
+        </head>
+        <script>
+            // Logical Operators
+            // There are four logical operators in JavaScript: || (OR), && (AND), ! (NOT),
+            // ?? (Nullish Coalescing). Here we cover the first three, the ?? operator is in
+            // the next article.
+            // Although they are called “logical”, they can be applied to values of any type,
+            // not only boolean. Their result can also be of any type.
+
+            // || (OR)
+            // In classical programming, the logical OR is meant to manipulate boolean values
+            // only. If any of its arguments are true, it returns true, otherwise it returns false.
+            alert(true || true);   // true
+            alert(false || true);  // true
+            alert(true || false);  // true
+            alert(false || false); // false
+
+            // If an operand is not a boolean, it’s converted to a boolean for the evaluation.
+            // For instance, the number 1 is treated as true, the number 0 as false:
+            if (1 || 0) {  // works just like if (true || false)
+                alert("truthy!");
+            }
+
+            // Most of the time, OR || is used in an if statement to test if any of the given
+            // conditions is true.
+            let hour = 9;
+            if (hour < 10 || hour > 18) {
+                alert('The Office is closed.')
+            }
+
+            // We can pass more conditions:
+            let hour1 = 12;
+            let isWeekend = true;
+            if (hour1 < 10 || hour1 || 18 || isWeekend) {
+                alert('The office is closed!'); // it is the weekend
+            }
+
+            // OR "||" finds the first truthy value
+            // The logic described above is somewhat classical. Now, let’s bring in the “extra”
+            // features of JavaScript.
+            // The extended algorithm works as follows.
+
+            // The OR || operator does the following:
+            // Evaluates operands from left to right.
+            // For each operand, converts it to boolean. If the result is true, stops and returns
+            // the original value of that operand.
+            // If all operands have been evaluated (i.e. all were false), returns the last operand.
+            alert(1 || 0);  // 1 (1 is truthy)
+            alert(null || 1);  // 1 (1 is the first truthy value)
+            alert(null || 0 || 1);  // 1 (the first truhty value)
+            alert(undefined || null || 0); // 0, (all falsy, returns the last value)
+
+            // 1. Getting the first truthy value from a list of variables or expressions.
+            // For instance, we have firstName, lastName and nickName variables, all optional
+            // (i.e. can be undefined or have falsy values).
+            // Let’s use OR || to choose the one that has the data and show it (or "Anonymous"
+            // if nothing set):
+            let firstName = '';
+            let lastName = '';
+            let nickName = 'SuperCoder';
+            alert(firstName || lastName || nickName || "Anonymous");  // SuperCode
+            // If all variables were falsy, "Anonymous" would show up.
+
+            // 2. Short-circuit evaluation.
+            // It means that || processes its arguments until the first truthy value is reached,
+            // and then the value is returned immediately, without even touching the other argument.
+            // In the example below, only the second message is printed:
+            true || alert("Not Printed"); // will not printed because true is the first truthy
+            false || alert("Printed");    // will printed because the alert is the first truthy
+
+            // && (AND)
+            // In classical programming, AND returns true if both operands are truthy otherwise false.
+            alert(true && true);    // true
+            alert(true && false);   // false
+            alert(false && false);  // false
+            alert(false && false);  // false
+            
+            // An example with if:
+            let hours = 12;
+            let minute = 30;
+            if (hours == 12 && minute == 30) {
+                alert("The time is 12:30");  // will print this line
+            }
+
+            // Just as with OR, any value is allowed as an operand of AND:
+            if (1 && 0) {  // evaluated as true && false
+                alert("Won't work, because the result is falsy");
+            }
+            
+            // AND “&&” finds the first falsy value
+            // Evaluates operands from left to right.
+            // For each operand, converts it to a boolean. If the result is false, stops and returns
+            // the original value of that operand.
+            // If all operands have been evaluated (i.e. all were truthy), returns the last operand.
+            // In other words, AND returns the first falsy value or the last value if none were found.
+
+            // The rules above are similar to OR. The difference is that AND returns the first falsy
+            // value while OR returns the first truthy one.
+
+            // if the first operand is truthy,
+            // AND returns the second operand:
+            alert(1 && 0);  // 0
+            alert(1 && 5);  // 5
+
+            // if the first operand is falsy,
+            // AND returns it. The second operand is ignored
+            alert(null && 5);  // null
+            alert(0 && 'no matter what');  // 0
+
+            // We can also pass several values in a row. See how the first falsy one is returned:
+            alert(1 && 2 && null && 3);  // null
+
+            // When all values are truthy, the last value is returned:
+            alert(1 && 2 && 3);  // 3, the last one
+
+            // Precedence of AND && is higher than OR ||
+            // So the code a && b || c && d is essentially the same as if the && expressions were
+            // in parentheses: (a && b) || (c && d).
+
+            // Don’t replace if with || or &&
+            // Sometimes, people use the AND && operator as a "shorter way to write if".
+            let x = 1;
+            (x > 0) && alert("Greator than zero!");  // Greator than zero! because the first operand is true
+            // The action in the right part of && would execute only if the evaluation reaches it. That is,
+            // only if (x > 0) is true.
+
+            // So we basically have an analogue for:
+            let x1 = 1;
+            if (x1 > 0) alert("Greator then zero");  // Greator then zero
+            // use if if we want if and use && if we want AND.
+
+            // ! (NOT)
+            // result = !value
+            // The operator accepts a single argument and does the following:
+            // Converts the operand to boolean type: true/false.
+            // Returns the inverse value.
+            alert( !true );  // false
+            alert( !0 );  // true
+            alert( !"Abc" );  // false
+            alert( !null );  // true
+
+            // A double NOT !! is sometimes used for converting a value to boolean type:
+            alert( !!"non-empty string" );  // true   (!"string" => false => !false => true)
+            alert( !!null );  // false
+            alert( !!0 );  // false
+            // That is, the first NOT converts the value to boolean and returns the inverse, and the second
+            // NOT inverses it again. In the end, we have a plain value-to-boolean conversion.
+
+            // There’s a little more verbose way to do the same thing – a built-in Boolean function:
+            alert(Boolean("non-empty string"));  // true
+            alert(Boolean(null));  // false
+            // The precedence of NOT ! is the highest of all logical operators, so it always executes first,
+            // before && or ||.
+
+            // Task2: What's the result of OR'ed alerts?
+            alert( alert(1) || 2 || alert(3) ); // first shows 1 but returns undefined so OR goes to second
+            // operand searching for truthy value then find 2 and returned it and ignored the alert(3) 
+            // because already find the truthy.
+
+            // the alert function is used to display a message box, but it does not return any value. When a
+            // function does not explicitly return a value in JavaScript, it implicitly returns undefined.
+            
+            // Task4: What is the result of AND'ed alerts?
+            alert( alert(1) && alert(2) );  // 1 and then undefined
+            // && evaluates the left operand (outputs 1), and immediately stops, because undefined is a
+            // falsy value.
+
+            // Task5: The result of OR AND OR
+            alert( null || 2 && 3 || 4);  // 3
+            // The precedence of AND && is higher than ||, so it executes first.
+            // The result of 2 && 3 = 3, so the expression becomes:
+            // null || 3 || 4
+            // Now the result is the first truthy value: 3.
+
+            // Task6: Check the range between
+            if (age >= 14 && age <= 90) {
+                alert("Task6");
+            }
+
+            // Task7: Check the range outside
+            // the first varient
+            if (!(age >= 14 && age <= 90)) {
+                alert("Task7a");
+            }
+            // the second varinet
+            if (age < 14 || age > 90) {
+                alert("Task7b")
+            }
+
+            // Task8: A question about "if"
+            if (-1 || 0) alert('first');  // -1 truthy so if will execueted and print first
+
+            if (-1 && 0) alert('second'); // 0 falsy so if will not execute
+            
+            if (null || -1 && 1) alert('third'); // && operator precedence is higher than ||
+            // so -1 && 1 executes first, -1 && 1 = 1
+            // then null || 1 = 1 so if will executed and print third
+
+            // Task9: Check the login
+            let login = prompt("Who's there?",'');
+            if (login === 'Admin') {
+                let password = prompt('Password?','');
+                if (password === 'TheMaster') {
+                    alert('Welcome!');
+                } else if (password === '' || password === null) {
+                    alert('Cancelled');
+                } else {
+                    alert('Wrong Password');
+                }
+            } else if (login === '' || login === null) {
+                alert('Cancelled');
+            } else {
+                alert("I don't know you");
+            }
+        </script>
+    </body>
+</html>

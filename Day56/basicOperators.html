@@ -1,0 +1,246 @@
+<html>
+    <body>
+        <head>
+            <title>My HTML Page</title>
+        </head>
+        <script>
+            // Unary
+            // An operator is unary if it has a single operand.
+            let x = 1;
+            x = -x;
+            alert(x);  // -1, unary negation was applied
+            // a unary operator that reverses the sign
+
+            // Binary
+            // An operator is binary if it has two operands.
+            let a = 1;
+            let b = 3;
+            alert(b - a);  // 2, binary minus subtract values
+            // a binary operator that subtracts one number from another.
+
+            // Math (+, -, *, /, %, **)
+
+            // Reminder  %
+            // The result of a % b is the remainder of the integer division of a by b.
+            alert(5 % 2);  // 1, the reminder of 5 divided by 2
+            alert(8 % 3);  // 2, the reminder of 8 divided by 3
+            alert(8 % 4);  // 0, the reminder of 8 divided by 4
+
+            // Exponention **
+            // The exponentiation operator a ** b raises a to the power of b.
+            alert(2 ** 2);  // 2² = 4
+            alert(2 ** 3);  // 2³ = 8
+            alert(2 ** 4);  // 2⁴ = 16
+            // Just like in maths, the exponentiation operator is defined for non-integer numbers as well.
+            // For example, a square root is an exponentiation by ½:
+            alert(4 ** (1/2));  // 2 (power of 1/2 is same as the square root)
+            alert(8 ** (1/3));  // 2 (power of 1/3 is same as a cubic root)
+
+            // Strin Concatenation with binary +
+            // If the binary + is applied to strings, it merges (concatenates) them
+            let s = "My" + "String";
+            alert(s);  // MyString
+            // Note that if any of the operands is a string, then the other one is converted to a string too.
+            alert("1" + 2);  // "12"
+            alert(2 + '1');  // "21"
+            alert(2 + 2 + '1');  // "41" and not "221"
+            alert('1' + 2 + 2);  // "122" and not "14"
+            // The binary + is the only operator that supports strings in such a way. Other arithmetic 
+            // operators work only with numbers and always convert their operands to numbers.
+            alert(6 - '2');  // 4, converts '2' to a number
+            alert('6' / '2');  // 3, convert both operands to numbers
+
+            // Numeric conversion, unary +
+            // the plus operator + applied to a single value, doesn’t do anything to numbers. But if the 
+            // operand is not a number, the unary plus converts it into a number.
+            // No effect on numbers
+            let m = 1;
+            alert( +m );  // 1
+
+            let n = -2;
+            alert( +n );  // -2
+
+            // Convert non numbers
+            alert( +true );   // 1
+            alert( +false );  // 0
+            alert( +"" );     // 0
+
+            // binary + add the strings
+            let apples = "2";
+            let oranges = "3";
+            alert(apples + oranges);  // "23", the binary plus concatenates string
+            // If we want to treat them as numbers, we need to convert and then sum them:
+            // both values converted to numbers before the binary plus
+            alert(+apples + +oranges);  // 5
+            
+            // the longer variant
+            alert(Number(apples) + Number(oranges));  // 5
+
+            // Assignment 
+            // an assignment = is also an operator. It is listed in the precedence table 
+            // with the very low priority of 2.
+            let assign = 2 * 2 + 1;
+            alert(assign);  // 5
+
+            // Assignment = returns a value
+            // The call x = value writes the value into x and then returns it.
+            let p = 1;
+            let q = 2;
+            let r = 3 - (p = q + 1)
+            alert(p);  // 3
+            alert(r);  // 0
+            
+            // Chaining assignments
+            let g, h, j;
+            g = h = j = 2 + 2;
+            alert(g);  // 4
+            alert(h);  // 4
+            alert(j);  // 4
+            // Chained assignments evaluate from right to left. First, the rightmost expression
+            // 2 + 2 is evaluated and then assigned to the variables on the left: j, h and g. 
+            // At the end, all the variables share a single value.
+
+            // Once again, for the purposes of readability it’s better to split such code into few lines:
+            j1 = 2 + 2;
+            h1 = j1;
+            g1 = j1
+
+            // Modify-in-place
+            let k = 2;
+            k = k + 5;
+            k = k * 2;
+            // This notation can be shortened using the operators += and *=:
+            let k1 = 2;
+            k1 += 5;   // now k1 = 7 (same as k1 = k1 + 5)
+            k1 *= 2;   // now k1 = 14 (same as k1 = k1 * 2)
+            alert(k1); // 14
+            // Short “modify-and-assign” operators exist for all arithmetical and bitwise 
+            // operators: /=, -=, etc.
+
+            // Such operators have the same precedence as a normal assignment, so 
+            // they run after most other calculations:
+            let z = 2;
+            z *= 3 + 5;  // right part evaluated first, same as z *= 8
+            alert(z);    // 16
+
+            // Increment/decrement
+            // Increasing or decreasing a number by one is among the most common numerical operations.
+
+            // Increment ++ increases a varable by 1
+            let counter = 2;
+            counter++;       // works the same as counter = counter + 1, but is shorter
+            alert(counter);  // 3
+
+            // Decrement -- decreases a variable by 1:
+            let counter1 = 2;
+            counter1--;       // works the same as counter = counter - 1, but is shorter
+            alert(counter1);  // 1
+            // Increment/decrement can only be applied to variables. Trying to use it on a 
+            // value like 5++ will give an error.
+
+            // The operators ++ and -- can be placed either before or after a variable.
+            // When the operator goes after the variable, it is in “postfix form”: counter++.
+            // The “prefix form” is when the operator goes before the variable: ++counter.
+
+            // The prefix form returns the new value while the postfix form returns the old 
+            // value (prior to increment/decrement).
+            // Prefix form
+            let num = 1;
+            a1 = ++num;  // increment then returns the value
+            alert(a1);   // 2
+
+            // Postfix form
+            let num1 = 1;
+            b1 = num1++;  // also increments counter but returns the old value (prior to increment)
+            alert(b1);    // 1
+
+            // To Summarize:
+            // If the result of increment/decrement is not used, there is no difference in 
+            // which form to use:
+            let counterr = 0;
+            counterr++;
+            ++counterr;
+            alert(counterr);  // 2, the lines above did the same
+
+            // If we’d like to increase a value and immediately use the result of the operator, 
+            // we need the prefix form:
+            let counter3 = 0;
+            alert( ++counter3 ); // 1
+
+            // If we’d like to increment a value but use its previous value, we need the postfix form:
+            let counter4 = 0;
+            alert( counter4++ ); // 0
+
+            // Increment/decrement among other operators
+            // The operators ++/-- can be used inside expressions as well. Their precedence is
+            // higher than most other arithmetical operations.
+            let aa = 1;
+            alert(2 * ++aa);  // 4
+            // Compare with:
+            let bb = 1;
+            alert(2 * bb++);  // 2, because bb++ returns the "old" value
+
+            // While reading code, a fast “vertical” eye-scan can easily miss something like 
+            // counter++ and it won’t be obvious that the variable increased.
+            // We advise a style of “one line – one action”:
+            let counter5 = 1;
+            alert( 2 * counter5 );
+            counter5++;
+
+            // Bitwise Operators
+            // Bitwise operators treat arguments as 32-bit integer numbers and work on the level 
+            // of their binary representation.
+            // The list of operators:
+            // AND ( & )
+            // OR ( | )
+            // XOR ( ^ )
+            // NOT ( ~ )
+            // LEFT SHIFT ( << )
+            // RIGHT SHIFT ( >> )
+            // ZERO-FILL RIGHT SHIFT ( >>> )
+
+            // Comma
+            // The comma operator allows us to evaluate several expressions, dividing them with a 
+            // comma ,. Each of them is evaluated but only the result of the last one is returned.
+            let y = (1 + 2, 3 + 4);
+            alert(y);  // 7 (the result of 3 + 4)
+            // Here, the first expression 1 + 2 is evaluated and its result is thrown away. Then, 
+            // 3 + 4 is evaluated and returned as the result.
+
+            // Comma has a very low precedence
+            // Please note that the comma operator has very low precedence, lower than =, so 
+            // parentheses are important in the example above.
+            // Without them: a = 1 + 2, 3 + 4 evaluates + first, summing the numbers into 
+            // a = 3, 7, then the assignment operator = assigns a = 3, and the rest is ignored.
+            // It’s like (a = 1 + 2), 3 + 4.
+
+            // three operations in one line
+            // for (a = 1, b = 3, c = a * b; a < 10; a++) {
+            // ...
+            // }
+            // Such tricks are used in many JavaScript frameworks. That’s why we’re mentioning
+            // them. But usually they don’t improve code readability so we should think well 
+            // before using them.
+
+            // Task4
+            // Fix the addition
+            let number1 = prompt('First Number', 1);
+            let number2 = prompt('Second Number', 2);
+            alert(number1 + number2);  // 12  (plus Concatenates)
+
+            // Solution
+            // convert strings to numbers
+            // using + before prompt
+            let number3 = +prompt('First Number', 1);
+            let number4 = +prompt('Second Number', 2);
+            alert(number3 + number4);  // 3 
+
+            // using + in alert
+            let number5 = prompt('First Number', 1);
+            let number6 = prompt('Second Number', 2);
+            alert( +number5 + +number6 );  // 3
+            // Using both unary and binary + in the latest code.
+
+        </script>
+    </body>
+</html>
