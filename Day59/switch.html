@@ -1,0 +1,153 @@
+<html>
+    <body>
+        <head>
+            <title>My HTML Page</title>
+        </head>
+       <script>
+        // The "switch" statement
+        // A switch statement can replace multiple if checks.
+        // It gives a more descriptive way to compare a value with multiple variants.
+
+        // The syntax
+        // The switch has one or more case blocks and an optional default.
+        // switch(x) {
+        // case 'value1':  // if (x === 'value1')
+        //     ...
+        //     [break]
+
+        // case 'value2':  // if (x === 'value2')
+        //     ...
+        //     [break]
+
+        // default:
+        //     ...
+        //     [break]
+        // }
+
+        // Example
+        let a = 2 + 2;
+        switch(a) {
+            case 3:
+                alert('Too Small');
+                break;
+            case 4:
+                alert('Exactly');// That’s a match, so the execution starts from case 4 until the nearest break.
+                break;
+            case 5:
+                alert('Too Big');
+                break;
+            default:
+                alert("I don't Know such values");
+        }
+
+        // If there is no break then the execution continues with the next case without any checks.
+        let b = 2 + 2;
+        switch(b) {
+            case 3:
+                alert('Too Small');
+            case 4:
+                alert('Exactly'); // Execution start from here until the default inner code
+            case 5:
+                alert('Too Big');
+            default:
+                alert("I don't know such value");
+        }
+        // In the example above we’ll see sequential execution of three alerts:
+        // alert( 'Exactly!' );
+        // alert( 'Too big' );
+        // alert( "I don't know such values" );
+
+        // Any expression can be a switch/case argument
+        // Both switch and case allow arbitrary expressions.
+        let c = "1";
+        let d = 0;
+
+        switch(+c) {
+            case d + 1:
+                alert("This runs, because +a is 1, exactly equals b+1");
+                break;
+            default:
+                alert("This doesn't run");
+        }
+        // Here +a gives 1, that’s compared with b + 1 in case, and the corresponding code is executed.
+
+        // Grouping of “case”
+        // Several variants of case which share the same code can be grouped.
+        // For example, if we want the same code to run for case 3 and case 5:
+        let m = 3;
+        switch(m) {
+            case 4:
+                alert('Right');
+                break;
+            case 3:  // (*) grouped two cases
+            case 5:
+                alert('Wrong!');
+                alert("Why you don't take a math class?");   
+            default:
+                alert('The result is strange. Really');
+        }
+        // Now both 3 and 5 show the same message.
+        // The ability to “group” cases is a side effect of how switch/case works without break.
+        // Here the execution of case 3 starts from the line (*) and goes through case 5, because 
+        // there’s no break.
+
+        // Type matters
+        // Let’s emphasize that the equality check is always strict. The values must be of the same
+        // type to match.
+        let arg = prompt('Enter a value?');
+        switch(arg) {
+            case '0':
+            case '1':
+                alert('One or Zero');
+                break;
+            case '2':
+                alert('Two');
+                break;
+            case 3:
+                alert('Never executes.');
+                break;
+            default:
+                alert('An unknown value');
+        }
+        // For 0, 1, the first alert runs.
+        // For 2 the second alert runs.
+        // But for 3, the result of the prompt is a string "3", which is not strictly equal === to
+        // the number 3. So we’ve got a dead code in case 3! The default variant will execute.
+
+        // Tasks
+
+        // Rewrite the "switch" into an "if"
+        let browser = prompt('Enter a browser', '');
+
+        if (browser === 'Edge') {
+            alert("You've got the Edge!");
+        } else if (browser === 'Chrome' ||
+                   browser == 'Firefox' ||
+                   browser == 'Safari' ||
+                   browser == 'Opera') {
+            alert('Okay we support these browsers too');
+        } else {
+            alert('We hope that this page looks ok!');
+        }
+
+        // Rewrite "if" into "switch"
+
+        let k = +prompt('k?', '');
+
+        switch(k) {
+            case 0: 
+                alert(0);
+                break;
+            case 1:
+                alert(1);
+                break;
+            case 2:
+            case 3:
+                alert('2,3');
+                break;
+            default:
+                alert('Unknown value');
+        }
+       </script>
+    </body>
+</html>
