@@ -1,0 +1,402 @@
+<html>
+    <body>
+        <head>
+            <title>My HTML Page</title>
+        </head>
+        <script>
+            // Functions
+            // Functions are the main “building blocks” of the program. They allow the code to be called
+            // many times without repetition.
+
+            // We’ve already seen examples of built-in functions, like alert(message), prompt(message, default)
+            // and confirm(question). But we can create functions of our own as well.
+
+            // Function Declaration
+            // To create a function we can use a function declaration.
+            function showMessage() {
+                alert('Hello everyone!');
+            }
+            // The function keyword goes first, then goes the name of the function, then a list of parameters
+            // between the parentheses (comma-separated, empty in the example above, we’ll see examples later)
+            // and finally the code of the function, also named “the function body”, between curly braces.
+            
+            function name(parameter1, parameter2, ... parameterN) {
+            // body
+            }
+
+            // Our new function can be called by its name: showMessage().
+            // For instance:
+            function showMessage1() {
+                alert('Hello everyone!');
+            }
+            showMessage1();
+            showMessage1();
+            // The call showMessage() executes the code of the function. Here we will see the message two times.
+
+            // This example clearly demonstrates one of the main purposes of functions: to avoid code
+            // duplication.
+            // If we ever need to change the message or the way it is shown, it’s enough to modify the code
+            // in one place: the function which outputs it.
+
+            // Local Variable
+            // A variable declared inside a function is only visible inside that function.
+            function showMessage2() {
+                let message = "Hello, I'm JavaScript"; // local variable
+                alert(message);
+            }
+            showMessage2();  // Hello, I'm JavaScript
+            // alert(message);  // Error: The variable is local to the function
+
+            // Outer Variable
+
+            // A function can access an outer variable as well, for example:
+            let userName = 'John';
+
+            function showMessage3() {
+                let message1 = 'Hello, ' + userName;
+                alert(message1);
+            }
+            showMessage3();  // Hello, John
+            // The function has full access to the outer variable. It can modify it as well.
+            // For instance:
+            let userName1 = 'John';
+
+            function showMessage4() {
+                userName1 = 'Bob';  // (1) Changed the outer variable
+
+                let message2 = 'Hello ' + userName1;
+                alert(message2);
+            }
+            alert(userName1);  // John before the function call.
+            showMessage4(); 
+            alert(userName1);  // Bob, the value was modified by the function.
+
+            // The outer variable is only used if there’s no local one.
+
+            // If a same-named variable is declared inside the function then it shadows the outer one.
+            // For instance, in the code below the function uses the local userName. The outer one is ignored:
+            let userName2 = 'John';
+
+            function showMessage5() {
+                let userName2 = 'Bob';  // declare a local variable
+
+                let message3 = 'Hello ' + userName2;  // Bob
+                alert(message3);
+            }
+            // the function will create and use its own userName2
+            showMessage5();
+            alert(userName2);  // John, unchanged, the function did not access the outer variable
+
+            // Global variables
+            // Variables declared outside of any function, such as the outer userName in the code above,
+            // are called global.
+            // Global variables are visible from any function (unless shadowed by locals).
+            // It’s a good practice to minimize the use of global variables. Modern code has few or no
+            // globals. Most variables reside in their functions. Sometimes though, they can be useful to
+            // store project-level data.
+
+            // Parameters
+            // We can pass arbitrary data to functions using parameters.
+            // In the example below, the function has two parameters: from and text.
+            function showMessage6(form, text) {
+                alert(from + ': ' + text);
+            }
+            showMessage6('Ann', 'Hello!');  // Ann: Hello! (*)
+            showMessage6('Ann', "What's up?"); // Ann: What's up? (**)
+            // When the function is called in lines (*) and (**), the given values are copied to local
+            // variables from and text. Then the function uses them.
+
+            // Here’s one more example: we have a variable from and pass it to the function. Please note:
+            // the function changes from, but the change is not seen outside, because a function always
+            // gets a copy of the value:
+            function showMessage7(from, text) {
+                from = '*' + from + '*';  // make "from" look nicer
+
+                alert(from + ': ' + text);
+            }
+            let from = 'Ann';
+            showMessage7(from,'Hello');  // *Ann* Hello
+
+            // the value of "from" is the same, the function modified a local copy
+            alert(from);  // Ann
+            // When a value is passed as a function parameter, it’s also called an argument.
+            // In the example above, one might say: "the function showMessage is declared with two
+            // parameters, then called with two arguments: from and "Hello"".
+
+            // Default values
+
+            // If a function is called, but an argument is not provided, then the corresponding value 
+            // becomes undefined.
+
+            // For instance, the aforementioned function showMessage(from, text) can be called with a
+            // single argument:
+            showMessage7("Ann");  // *Ann*: undefined
+            // That’s not an error. Such a call would output "*Ann*: undefined". As the value for text
+            // isn’t passed, it becomes undefined.
+
+            // We can specify the so-called “default” (to use if omitted) value for a parameter in the
+            // function declaration, using =:
+            function showMessage8(from, text = 'no text given') {
+                alert(from + ': ' + text);
+            }
+            showMessage8('Ann');  // Ann: no text given
+            // Now if the text parameter is not passed, it will get the value "no text given".
+
+            // The default value also jumps in if the parameter exists, but strictly equals undefined,
+            // like this:
+            showMessage8('Ann', undefined);  // Ann: no text given
+            // Here "no text given" is a string, but it can be a more complex expression, which is only
+            // evaluated and assigned if the parameter is missing. So, this is also possible:
+            function showMessage9(from, text = anotherFunction()) {
+                // anotherFunction() only executed if no text given
+                // its result becomes the value of text
+            }
+            // In the example above, anotherFunction() isn’t called at all, if the text parameter is provided.
+            // On the other hand, it’s independently called every time when text is missing.
+
+            // Default parameters in old JavaScript code
+            // For example, an explicit check for undefined:
+            function showMessage10(from, text) {
+                if (text === undefined) {
+                    text = 'no text given';
+                }
+                alert(from + ': ' + text);
+            }
+            // …Or using the || operator:
+            function showMessage11(from, text) {
+                // If the value of text is falsy, assign the default value
+                // this assumes that text == "" is the same as no text at all
+                text = text || 'no text given';
+                // ...
+            }
+
+            // Alternative default parameters
+
+            // Sometimes it makes sense to assign default values for parameters at a later stage after the
+            // function declaration.
+            // We can check if the parameter is passed during the function execution, by comparing it with
+            // undefined:
+            function showMessage12(text) {
+                // ...
+                if (text === undefined) {
+                    text = 'empty message';
+                }
+                alert(text);
+            }
+            showMessage12();  // empty message
+
+            // …Or we could use the || operator:
+            function showMessage13(text) {
+                // if text is undefined or otherwise falsy, set it to 'empty'
+                text = text || 'empty';
+                // ...
+            }
+
+            // Modern JavaScript engines support the nullish coalescing operator ??, it’s better when most
+            // falsy values, such as 0, should be considered “normal”:
+            function showCount(count) {
+                // if count is undefined or null , show "unknown"
+                alert(count ?? "Unknown");
+            }
+            showCount(0);  // 0
+            showCount(null);  // Unknown
+            showCount();  // Unknown
+
+            // Returning a value
+
+            // A function can return a value back into the calling code as the result.
+            // The simplest example would be a function that sums two values:
+            function sum(a, b) {
+                return a + b;
+            }
+            let result = sum(1, 2);
+            alert(result);  // 3
+            // The directive return can be in any place of the function. When the execution reaches it,
+            // the function stops, and the value is returned to the calling code (assigned to result above).
+
+            // There may be many occurrences of return in a single function. For instance:
+            function checkAge(age) {
+                if (age >= 18) {
+                    return true;
+                } else {
+                    return confirm('Do you have permission from your parents?');
+                }
+            }
+            let age = prompt('How old are you?', 18);
+
+            if (checkAge(age)) {
+                alert('Access granted');
+            } else {
+                alert('Access denied');
+            }
+
+            // It is possible to use return without a value. That causes the function to exit immediately.
+            function showMovies(age) {
+                if (!checkAge(age)) {
+                    return;
+                }
+                alert('Showing you the movie');  // (*)
+                // ...
+            }
+            // In the code above, if checkAge(age) returns false, then showMovie won’t proceed to the alert.
+
+            // A function with an empty return or without it returns undefined
+            // If a function does not return a value, it is the same as if it returns undefined:
+            function doNothing() { /* empty */ }
+            alert(doNothing() === undefined);  // true
+
+            // An empty return is also the same as return undefined:
+            function doNothing1() {
+                return;
+            }
+            alert(doNothing1 === undefined);  // true
+
+            /* Never add a newline between return and the value
+            For a long expression in return, it might be tempting to put it on a separate line, like this:
+
+            return
+            (some + long + expression + or + whatever * f(a) + f(b))
+            That doesn’t work, because JavaScript assumes a semicolon after return. That’ll work the same as:
+
+            return;
+            (some + long + expression + or + whatever * f(a) + f(b))
+            So, it effectively becomes an empty return.
+
+            If we want the returned expression to wrap across multiple lines, we should start it at the
+            same line as return. Or at least put the opening parentheses there as follows:
+
+            return (
+            some + long + expression
+            + or +
+            whatever * f(a) + f(b)
+            )
+            And it will work just as we expect it to. */
+
+            // Naming a function
+            
+            // Function starting with…
+            // "get…" – return a value,
+            // "calc…" – calculate something,
+            // "create…" – create something,
+            // "check…" – check something and return a boolean, etc.
+
+            // Examples of such names:
+
+            // showMessage(..)     // shows a message
+            // getAge(..)          // returns the age (gets it somehow)
+            // calcSum(..)         // calculates a sum and returns the result
+            // createForm(..)      // creates a form (and usually returns it)
+            // checkPermission(..) // checks a permission, returns true/false
+
+            // One function – one action
+
+            // A function should do exactly what is suggested by its name, no more.
+            // Two independent actions usually deserve two functions, even if they are usually called
+            // together (in that case we can make a 3rd function that calls those two).
+
+            // A few examples of breaking this rule:
+
+            // - getAge – would be bad if it shows an alert with the age (should only get).
+            // - createForm – would be bad if it modifies the document, adding a form to it (should only
+            // create it and return).
+            // - checkPermission – would be bad if it displays the access granted/denied message 
+            // (should only perform the check and return the result).
+
+            // Function == Comment
+            /* A separate function is not only easier to test and debug – its very existence is a great
+              comment!
+
+            For instance, compare the two functions showPrimes(n) below. Each one outputs prime numbers
+            up to n.
+
+            The first variant uses a label:
+
+            function showPrimes(n) {
+            nextPrime: for (let i = 2; i < n; i++) {
+
+                for (let j = 2; j < i; j++) {
+                if (i % j == 0) continue nextPrime;
+                }
+
+                alert( i ); // a prime
+            }
+            }
+            The second variant uses an additional function isPrime(n) to test for primality:
+
+            function showPrimes(n) {
+
+            for (let i = 2; i < n; i++) {
+                if (!isPrime(i)) continue;
+
+                alert(i);  // a prime
+            }
+            }
+
+            function isPrime(n) {
+            for (let i = 2; i < n; i++) {
+                if ( n % i == 0) return false;
+            }
+            return true;
+            }
+            The second variant is easier to understand, isn’t it? Instead of the code piece we see a name
+            of the action (isPrime). Sometimes people refer to such code as self-describing.
+
+            So, functions can be created even if we don’t intend to reuse them. They structure the code
+            and make it readable.*/
+
+            // Tasks
+
+            // Rewrite the function using '?' or '||'
+
+            // Using a question mark operator '?':
+            function checkAge1(age) {
+                return (age > 18) ? true : confirm('Did Parents allow you?');
+            }
+
+            // Using OR || (the shortest variant):
+            function checkAge2(age) {
+                return (age > 18) || confirm('Did Parents allow you?');
+            } // Note that the parentheses around age > 18 are not required here. They exist for
+            //   better readability.
+
+            // Function min(a,b)
+            // Write a function min(a,b) which returns the least of two numbers a and b.
+
+            // A solution using if
+            function min(a, b){
+                if (a < b) {
+                    return a;
+                } else {
+                    return b;
+                }
+            }
+
+            // A solution with a question mark operator '?'
+            function min1(a, b) {
+                return a < b ? a : b;
+            }
+            // P.S. In the case of an equality a == b it does not matter what to return.
+
+            // Function pow(x, n)
+            // Write a function pow(x,n) that returns x in power n. Or, in other words, multiplies x by
+            // itself n times and returns the result.
+            // P.S. In this task the function should support only natural values of n: integers up from 1.
+            function pow(x, n) {
+                let result = x;
+
+                for (let i = 1; i < n; i++) {
+                    result *= x;
+                }
+                return result;
+            }
+            let x = prompt('x?', '');
+            let n = prompt('n?', '');
+
+            if (n < 1) {
+                alert(`Power ${n} is not supported, use a positive integer`);
+            } else {
+                alert(pow(x, n));
+            }
+        </script>
+    </body>
+</html>
