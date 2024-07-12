@@ -15,4 +15,3 @@ let arrayThree: (string | number)[] = ["A", "B", "C", 1, 2, 3, 4, 5];
 // 3- arrayThree is declared as an array that can hold elements of either type string or number,
 //    annotated with (string | number)[]. This array allows for a mixture of numeric and string
 //    values within the same array.
-

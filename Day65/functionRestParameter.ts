@@ -28,4 +28,3 @@ console.log(addAll(10, 20, 30, 40));  // Output: 100
 
 // pro tip +true in JavaScript is a unary plus operator (+) applied to the boolean true, resulting in
 // the numeric value 1.
-

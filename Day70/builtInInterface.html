@@ -1,0 +1,80 @@
+<!-- // built-in interface
+
+// In TypeScript, a built-in interface refers to an interface that is predefined and provided by
+// the TypeScript language or the underlying JavaScript runtime environment. These interfaces
+// define the shape and behavior of objects or values for specific use cases and are used to ensure
+// type safety and compatibility in TypeScript code.
+
+// Examples of built-in interfaces in TypeScript include:
+
+// 1- HTMLElement Interfaces:
+// TypeScript provides built-in interfaces for HTML elements, such as 'HTMLElement', 'HTMLDivElement',
+// 'HTMLAnchorElement', etc. These interfaces define the properties and methods available for working
+// with elements in the Document Object Model (DOM).
+
+
+// HTMLImageElement
+
+// In TypeScript, HTMLImageElement is a built-in interface that represents an HTML <img> element.
+// This interface extends the HTMLElement interface and provides additional properties and methods
+// specifically related to images.
+
+// Here are some of the properties and methods you can access when working with an HTMLImageElement:
+
+// Properties:
+// - alt: A string representing the alternate text for the image.
+// - height: The height of the image in pixels.
+// - src: The source URL of the image.
+// - width: The width of the image in pixels.
+
+// Methods:
+// - complete: A boolean value indicating whether the image has finished loading.
+// - decode(): Promise<void>: A method that returns a promise and resolves once the image is decoded.
+// - naturalHeight: The intrinsic height of the image in pixels.
+// - naturalWidth: The intrinsic width of the image in pixels.
+
+// By using the HTMLImageElement interface in TypeScript, you can access and manipulate properties and
+// methods related to <img> elements in a type-safe manner when working with the Document Object 
+// Model (DOM) in web applications. This helps catch potential errors and provides better code assistance
+// in modern code editors.
+
+// Example of using HTMLImageElement in TypeScript: -->
+
+<html>
+        <head>
+            <title>My HTML Page</title>
+        </head>
+        <body>
+            <script>
+                const imgElement = document.createElement("img");
+                imgElement.src = "cat.jpg";
+                imgElement.alt = "My Image";
+                
+                document.body.appendChild(imgElement); // Append the image to the document to load it
+
+                if (imgElement.complete) {
+                    alert(`Image Dimentions: ${imgElement.naturalWidth}x${imgElement.naturalHeight}`);
+                } else {
+                    imgElement.addEventListener("load", () => {
+                        alert(`Image Dimentions: ${imgElement.naturalWidth}x${imgElement.naturalHeight}`);
+                    })
+                }
+            </script>
+    </body>
+</html>
+
+
+<!-- const imgElement: HTMLImageElement = document.createElement("img");
+imgElement.src = "cat.jpg";
+imgElement.alt = "My Image";
+ 
+if (imgElement.complete) {
+    console.log(`Image Dimentions: ${imgElement.naturalWidth}x${imgElement.naturalHeight}`);
+} else {
+    imgElement.addEventListener("load", () => {
+        console.log(`Image Dimentions: ${imgElement.naturalWidth}x${imgElement.naturalHeight}`);
+    })
+} -->
+
+<!-- In this example, we create an HTMLImageElement, set its properties, and work with some of its methods
+in a TypeScript context. -->
